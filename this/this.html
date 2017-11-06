@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+         //this 在没有对象的时候代表的是WINDOW对象
+        var getName = function(){
+            return this.name;
+        };
+        console.log( getName() ); // 输出：globalName
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        window.name = 'globalName';
+        var myObject = {
+            name: 'sven',
+            getName: function(){
+                return this.name;
+            }
+        };
+        var getName = myObject.getName;
+        console.log( getName() ); // globalName
+    </script>
+</body>
+</html>

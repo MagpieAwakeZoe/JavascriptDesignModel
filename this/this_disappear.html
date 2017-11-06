@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            myName: 'sven',
+            getName: function(){
+                return this.myName;
+            }
+        };
+        console.log( obj.getName() ); // 输出：'sven'
+        var getName2 = obj.getName;
+        console.log( getName2() ); // 输出：undefined
+        //用另外一个变量 getName2 来引用 obj.getName，并且调用 getName2
+        // 时这里的this是普通函数的调用方式，this指向的是全局window所以是undefined  。
+    </script>
+</body>
+</html>

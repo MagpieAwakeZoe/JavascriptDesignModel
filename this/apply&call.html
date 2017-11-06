@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            name: 'sven',
+            getName: function(){
+                return this.name;
+            }
+        };
+        var obj2 = {
+            name: 'anne'
+        };
+        console.log( obj1.getName() ); // 输出: sven
+        console.log( obj1.getName.call( obj2 ) ); // 输出：anne
+        console.log( obj1.getName.apply( obj2 ) ); // 输出：anne
+        //这里将this 改变为obj2而不是原来的obj1.
+    </script>
+</body>
+</html>

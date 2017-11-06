@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = { name: 'sven' };
+    var A = function(){};
+    A.prototype = obj;
+    var a = new A();
+    console.log( a.name ); // 输出：sven
+
+//     首先，尝试遍历对象 a 中的所有属性，但没有找到 name 这个属性。
+//     查找 name 属性的这个请求被委托给对象 a 的构造器的原型，它被 a.__proto__ 记录着并且
+//    指向 A.prototype，而 A.prototype 被设置为对象 obj。
+//     在对象 obj 中找到了 name 属性，并返回它的值。
+</script>
+
+<script>
+    var A = function(){};
+    A.prototype = { name: 'sven' };
+    var B = function(){};
+    B.prototype = new A();
+    var b = new B();
+    console.log( b.name ); // 输出：sven
+
+//     首先，尝试遍历对象 b 中的所有属性，
+//     查找 name 属性的请求被委托给对象 b 的构造器的原型，它被 b.__proto__ 记录着并且指向
+//    B.prototype，而 B.prototype 被设置为一个通过 new A()创建出来的对象。
+//     在该对象中依然没有找到 name 属性，于是请求被继续委托给这个对象构造器的原型
+//    A.prototype。
+//     在 A.prototype 中找到了 name 属性，并返回它的值。
+</script>
+</body>
+</html>

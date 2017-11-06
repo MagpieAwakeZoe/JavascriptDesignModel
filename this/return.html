@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //用 new 调用构造器时，要注意一个问题，如果构造器显式地返回了一个 object 类型的对
+        //象，那么此次运算结果最终会返回这个对象，而不是我们之前期待的 this：
+        var MyClass = function(){
+            this.name = 'sven';
+            return { // 显式地返回一个对象
+                name: 'anne'
+            }
+        };
+        var obj = new MyClass();
+        alert ( obj.name ); // 输出：anne
+    </script>
+</body>
+</html>

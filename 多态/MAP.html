@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var googleMap = {
+        show: function(){
+            console.log( '开始渲染谷歌地图' );
+        }
+    };
+    var sosoMap = {
+        show: function(){
+            console.log( '开始渲染搜搜地图' );
+        }
+    };
+    var baiduMap ={
+        show: function (){
+            console.log('开始渲染百度地图');
+        }
+    }
+    var renderMap = function( map ){
+        if ( map.show instanceof Function ){            // A instanceof B,判断是否A和B是同一类型
+                                                        //也可以判断继承关系
+            map.show();
+        }
+    };
+    renderMap( googleMap ); // 输出：开始渲染谷歌地图
+    renderMap( baiduMap ); // 输出：开始渲染百度地图
+    renderMap( sosoMap ); // 输出：开始渲染搜搜地图
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var makeSound = function (animal) {
+            animal.sound();
+        };
+        var Duck =function () {
+            
+        }
+        Duck.prototype.sound=function () {
+            console.log('嘎嘎嘎');
+        };
+        var Chicken =function () {
+
+        }
+        Chicken.prototype.sound=function () {
+            console.log('叽叽叽');
+        }
+        makeSound( new Duck());
+        makeSound( new Chicken());
+    </script>
+</body>
+</html>
